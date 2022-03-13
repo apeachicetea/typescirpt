@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Circle from "./Circle";
+
+const Wrapper = styled.div`
+  color: ${(props) => props.theme.textColor};
+  background-color: ${(props) => props.theme.bgColor};
+`;
 
 function App() {
   const [value, setValue] = useState("");
@@ -10,7 +16,7 @@ function App() {
     e.preventDefault();
   };
   return (
-    <div>
+    <Wrapper>
       <Circle bgColor='tomato' borderColor='yellow' />
       <Circle bgColor='teal' text='Hello' />
       <form onSubmit={onSubmit}>
@@ -22,7 +28,7 @@ function App() {
         />
         <button>Log in</button>
       </form>
-    </div>
+    </Wrapper>
   );
 }
 

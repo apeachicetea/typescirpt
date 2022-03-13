@@ -1,12 +1,9 @@
-// import { DefaultTheme } from "styled-components";
+import "styled-components";
 
-// const DefaultTheme = {
-//   borderRadius: "5px",
-
-//   colors: {
-//     main: "cyan",
-//     secondary: "magenta",
-//   },
-// };
-
-// export default DefaultTheme;
+declare module "styled-components" {
+  export interface DefaultTheme {
+    textColor: string;
+    bgColor: string;
+    btnColor: string;
+  }
+}
