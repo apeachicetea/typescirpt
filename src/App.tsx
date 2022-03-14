@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Circle from "./Circle";
+import Calender from "./Calender";
 
 const Wrapper = styled.div`
   color: ${(props) => props.theme.textColor};
@@ -28,6 +29,7 @@ function App() {
         />
         <button>Log in</button>
       </form>
+      <Calender />
     </Wrapper>
   );
 }
