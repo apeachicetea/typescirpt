@@ -1,37 +1,27 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Circle from "./Circle";
-import Calender from "./Calender";
-
-const Wrapper = styled.div`
-  color: ${(props) => props.theme.textColor};
-  background-color: ${(props) => props.theme.bgColor};
-`;
-
 function App() {
-  const [value, setValue] = useState("");
-  const onChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setValue(e.currentTarget.value);
-  };
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
-  return (
-    <Wrapper>
-      <Circle bgColor='tomato' borderColor='yellow' />
-      <Circle bgColor='teal' text='Hello' />
-      <form onSubmit={onSubmit}>
-        <input
-          type='text'
-          value={value}
-          onChange={onChange}
-          placeholder='username'
-        />
-        <button>Log in</button>
-      </form>
-      <Calender />
-    </Wrapper>
-  );
+  //Object에 타입 지정은 1. type, 2. interface로 타입 지정 가능
+
+  //type
+  type Square = { color: string; width: number };
+  //interface
+  interface ISquare {
+    color: string;
+    width: number;
+  }
+
+  //interface의 장점:extends 기능
+  interface IStudent {
+    name: string;
+  }
+
+  interface ITeacher extends IStudent {
+    age: number;
+  }
+
+  let 네모: Square = { color: "red", width: 100 };
+  let 학생: IStudent = { name: "kim" };
+  let 선생: ITeacher = { name: "kim", age: 20 };
+  return <div>ㅗ</div>;
 }
 
 export default App;

@@ -28,12 +28,13 @@ const CalendarContainer = styled.div`
   }
 `;
 
-function Calender() {
+function Calender(props: { money: number }) {
   const [value, onChange] = useState(new Date());
   console.log(value);
 
   return (
     <CalendarContainer>
+      {props.money}
       <Calendar onChange={onChange} value={value} />
       <div>{moment(value).format("YYYY-MM-DD")}</div>
     </CalendarContainer>
