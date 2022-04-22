@@ -33,6 +33,12 @@ daeyoon.age = 32;
 
 const playerMaker2 = (name: string): Player => ({ name });
 
+//readonly
+const names: readonly string[] = ["1", "2"];
+
+//tuple
+const player2: [string, number, boolean] = ["1", 2, false];
+
 function App() {
   return <h1>App</h1>;
 }
