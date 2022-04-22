@@ -39,6 +39,35 @@ const names: readonly string[] = ["1", "2"];
 //tuple
 const player2: [string, number, boolean] = ["1", 2, false];
 
+//unknown
+//변수의 타입을 미리 알지 못할때 unknown을 사용함
+let x: unknown;
+
+if (typeof x === "number") {
+  let y = x + 1;
+}
+
+if (typeof x === "string") {
+  let y = x.toUpperCase();
+}
+
+//void
+function hi(): void {
+  return;
+}
+
+//never
+function hello(name: string | number) {
+  if (typeof name === "string") {
+    return name;
+  } else if (typeof name === "number") {
+    return name;
+  } else {
+    //여기서 name의 타입은 never이다.
+    return name;
+  }
+}
+
 function App() {
   return <h1>App</h1>;
 }
