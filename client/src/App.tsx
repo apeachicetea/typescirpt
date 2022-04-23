@@ -1,43 +1,20 @@
-//overloading
-//오버로딩은 함수가 서로 다른 여러개의 call signatures를 가지고 있을 때 발생시킨다
-type Add = {
-  (a: number, b: number): number;
-  (a: number, b: string): number;
+//polymorphism
+//generic이란, 타입의 placeholder 같은 것이다
+//위치는 인자 앞에 <>안에 원하는 변수명입력해서 사용하면 된다
+//타입스크립트는 placeholder에서 타입스크립트가 여기에서 알아낸 타입으로 대체해준다
+
+type SuperPrint = {
+  <T>(arr: T[]): T;
 };
 
-const add: Add = (a, b) => {
-  if (typeof b === "string") return a;
-  return a + b;
+const superPrint: SuperPrint = (arr) => {
+  return arr[0];
 };
 
-type Add1 = {
-  (a: number, b: number): number;
-  (a: number, b: number, c: number): number;
-};
-
-const add1: Add1 = (a, b, c?: number) => {
-  if (c) return a + b + c;
-  return a + b;
-};
-
-//next.js에서 Router.push사용시 overloading 사용 예시
-type Config = {
-  path: string;
-  state: object;
-};
-
-type Push = {
-  (path: string): void;
-  (config: Config): void;
-};
-
-const push: Push = (config) => {
-  if (typeof config === "string") {
-    console.log(config);
-  } else {
-    console.log(config.path);
-  }
-};
+const a = superPrint([1, 2, 3, 4]);
+const b = superPrint([true, false, false, true]);
+const c = superPrint(["1", "2"]);
+const d = superPrint([1, 2, true, false]);
 
 function App() {
   return <h1>App</h1>;
