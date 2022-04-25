@@ -1,40 +1,26 @@
-//ex1
-function superPrint<V>(a: V[]) {
-  return a[0];
+//interface
+//타입스크립트에게 오브젝트의 모양을 설명해주는 하나의 목적으로만 사용가능하다
+//type은 매우 다양한 용도로 쓰인다
+
+type Player = {
+  nickname: string;
+  healthBar: number;
+};
+
+interface Player1 {
+  nickname: string;
+  healthBar: number;
 }
 
-//ex2
-type Player<E> = {
-  name: string;
-  extraInfo: E;
+const nico: Player = {
+  nickname: "nico",
+  healthBar: 10,
 };
 
-type DeayoonExtra = { favFood: string };
-
-type DaeyoonPlayer = Player<DeayoonExtra>;
-
-const daeyoon: DaeyoonPlayer = {
-  name: "kim",
-  extraInfo: {
-    favFood: "Pizza",
-  },
+const deayoon: Player1 = {
+  nickname: "deayoon",
+  healthBar: 7,
 };
-
-const hyun: Player<null> = {
-  name: "hyun",
-  extraInfo: null,
-};
-
-//ex3
-//Array<number> === number[]
-type A = Array<number>;
-
-let a: A = [1, 2, 3, 4];
-
-//ex4
-function printAllNumbers(arr: Array<number>) {
-  return arr;
-}
 
 function App() {
   return <h1>App</h1>;
